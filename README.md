@@ -1,0 +1,1 @@
+This is a Ruby program that helps you determine the best days to buy and sell stocks for maximum profit. The stock_picker function takes an array of stock prices and returns an array with the best buy day and the best sell day.
