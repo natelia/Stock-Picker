@@ -5,19 +5,19 @@ def stock_picker(prices)
 
   prices.each_with_index do |buy_price, buy_day|
     prices.each_with_index do |sell_price, sell_day|
+      next if sell_day <= buy_day
+
       profit = sell_price - buy_price
-    
-      if profit > max_profit && buy_day < sell_day
-        max_profit = profit
-        best_buy_day = buy_day
-        best_sell_day = sell_day
-      end
+
+      next unless profit > max_profit
+
+      max_profit = profit
+      best_buy_day = buy_day
+      best_sell_day = sell_day
     end
   end
 
   [best_buy_day, best_sell_day]
 end
 
-
-
-puts stock_picker([10, 9, 8, 7, 6, 5, 4, 13, 2])
+puts stock_picker([10, 2, 8, 7, 8, 5, 4, 18, 2])
